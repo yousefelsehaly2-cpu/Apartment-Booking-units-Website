@@ -1,0 +1,58 @@
+.contact {
+  padding: 50px 10px 120px;
+  background:
+    linear-gradient(rgba(38, 56, 88, 0.85), rgba(38, 56, 88, 0.85)),
+    url("city.jpg");
+  background-size: cover;
+  background-position: bottom;
+}
+
+.navbar {
+  background-color: #2e4364;
+}
+
+.contact-form {
+  border: 1px solid white;
+  padding: 25px;
+}
+
+.contact-form .btn {
+  width: 180px;
+}
+
+.contact h3 {
+  font-family: Georgia, serif;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.contact h1 {
+  font-family: Georgia, serif;
+  margin-bottom: 15px;
+}
+
+.contact p {
+  margin-bottom: 30px;
+}
+
+.contact p i {
+  font-size: 22px;
+  margin-right: 8px;
+}
+
+.social {
+  color: white;
+  border: 2px solid white;
+  padding: 4px 8px;
+  margin-right: 6px;
+  margin-top: 10px;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+footer {
+  background-color: white;
+  color: #263653;
+  padding: 20px 0;
+}
