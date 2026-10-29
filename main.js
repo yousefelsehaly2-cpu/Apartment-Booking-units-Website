@@ -1,7 +1,28 @@
-var num1 = Number(window.prompt("Enter Num1:"));
-var num2 = Number(window.prompt("Enter Num2:"));
-var num3 = Number(window.prompt("Enter Num3:"));
+let grade = Number(prompt("Enter your grade:"));
 
-var average = (num1 + num2 + num3) / 3;
+if (grade > 100 ) {
+    console.log("Invalid Grade");
+}
 
-console.log(average);
+
+else if (grade >= 90) {
+    console.log("A");
+}
+
+else if (grade >= 80) {
+    console.log("B");
+}
+
+else if (grade >= 70) {
+    console.log("C");
+}
+
+else if (grade >= 60) {
+    console.log("D");
+}
+else if (grade >= 50) {
+    console.log("D-");
+}
+else {
+    console.log("F");
+}
