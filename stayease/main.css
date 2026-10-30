@@ -1,0 +1,63 @@
+.contact {
+  padding: 50px 10px 120px;
+  background-color: #e7efeb;
+}
+
+.contact {
+  color: #315c55;
+}
+
+.navbar {
+  background-color: #315c55;
+}
+
+.contact-form {
+  border: 1px solid #cedbd4;
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px;
+}
+
+.contact-form .btn {
+  background-color: #315c55;
+  color: white;
+  border-color: #315c55;
+  width: 180px;
+}
+
+.contact h3 {
+  font-family: Georgia, serif;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.contact h1 {
+  font-family: Georgia, serif;
+  margin-bottom: 15px;
+}
+
+.contact p {
+  margin-bottom: 30px;
+}
+
+.contact p i {
+  font-size: 22px;
+  margin-right: 8px;
+}
+
+.social {
+  color: #315c55;
+  border: 2px solid #315c55;
+  padding: 4px 8px;
+  margin-right: 6px;
+  margin-top: 10px;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+footer {
+  background-color: #315c55;
+  color: white;
+  padding: 20px 0;
+}
