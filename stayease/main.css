@@ -61,3 +61,18 @@ footer {
   color: white;
   padding: 20px 0;
 }
+
+/* Contact Form Validation */
+
+.contact-form .form-control.is-invalid {
+    border: 1px solid #dc3545;
+}
+
+.contact-form .invalid-feedback {
+    display: none;
+}
+
+.contact-form .form-control.is-invalid + .invalid-feedback {
+    display: block;
+}
+
