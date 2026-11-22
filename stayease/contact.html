@@ -5,17 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Contant - StayEase</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-    />
-    <link rel="stylesheet" href="./main.css" />
-  </head>
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+  crossorigin="anonymous"
+/>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+/>
+
+<link rel="stylesheet" href="./main.css" />
+
+<link rel="stylesheet" href="./theme.css" />
+
+</head>
   <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark shadow-sm py-0">
@@ -35,28 +40,42 @@
 
         <div class="collapse navbar-collapse" id="navbarMenu">
           <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="apartment.html">Apartments</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="booking.html">Booking</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="register.html">Register</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active fw-bold" href="contact.html">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"><i class="bi bi-search"></i></a>
-            </li>
-          </ul>
+    <li class="nav-item">
+        <a class="nav-link" href="index.html">Home</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="about.html">About</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="apartment.html">Apartments</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="booking.html">Booking</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="register.html">Register</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link active fw-bold" href="contact.html">Contact</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="#"><i class="bi bi-search"></i></a>
+    </li>
+</ul>
+
+<!-- Dark / Light Mode Button -->
+<button
+    class="btn btn-outline-light ms-lg-3 my-2 my-lg-0"
+    id="themeBtn"
+    type="button">
+    🌙 Dark Mode
+</button>
         </div>
       </div>
     </nav>
@@ -92,45 +111,90 @@
           <div class="col-md-6">
             <h1>SEND A MESSAGE</h1>
 
-            <form class="contact-form">
-              <a href="#" class="text-white d-block mb-4">
-                Use This Jotform Template
-              </a>
-              <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input
-                  type="text"
-                  class="form-control w-50"
-                  id="name"
-                  required
-                />
-              </div>
+<form class="contact-form" id="contactForm" novalidate>
 
-              <div class="mb-3">
-                <label for="project-description" class="form-label"
-                  >Project Description
-                </label>
-                <textarea
-                  class="form-control"
-                  id="project-description"
-                  rows="4"
-                  required
-                ></textarea>
-              </div>
+    <a href="#" class="text-white d-block mb-4">
+        Use This Jotform Template
+    </a>
 
-              <div class="mb-3">
-                <label for="target-audience" class="form-label"
-                  >Target Audience</label
-                >
-                <input
-                  type="text"
-                  class="form-control w-50"
-                  id="target-audience"
-                />
-              </div>
-              <hr />
-              <button type="submit" class="btn btn-light">Submit</button>
-            </form>
+    <!-- Name -->
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+
+        <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Enter your name"
+        >
+
+        <div class="invalid-feedback">
+            Please enter your name (at least 2 characters).
+        </div>
+    </div>
+
+    <!-- Email -->
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+
+        <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Enter your email"
+        >
+
+        <div class="invalid-feedback">
+            Please enter a valid email address.
+        </div>
+    </div>
+
+    <!-- Project Description -->
+    <div class="mb-3">
+        <label for="project-description" class="form-label">
+            Project Description
+        </label>
+
+        <textarea
+            class="form-control"
+            id="project-description"
+            rows="4"
+            placeholder="Write your message here"
+        ></textarea>
+
+        <div class="invalid-feedback">
+            Message must be at least 10 characters.
+        </div>
+    </div>
+
+    <!-- Target Audience -->
+    <div class="mb-3">
+        <label for="target-audience" class="form-label">
+            Target Audience
+        </label>
+
+        <input
+            type="text"
+        class="form-control"
+        id="target-audience"
+    placeholder="Who is your target audience?"
+    >
+    </div>
+
+    <hr>
+
+    <button type="submit" class="btn btn-light">
+        Submit
+    </button>
+
+    <!-- Success Message -->
+    <div id="successMessage" class="alert alert-success mt-3 d-none">
+        Your message has been sent successfully!
+    </div>
+
+</form>
+
+            
           </div>
         </div>
       </div>
@@ -143,9 +207,12 @@
     </footer>
 
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+></script>
+
+<script src="./contact-validation.js"></script>
+<script src="./theme.js"></script>
+</body>
 </html>
+  
+

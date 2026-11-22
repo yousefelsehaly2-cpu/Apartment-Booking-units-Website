@@ -1,0 +1,147 @@
+
+/* =========================
+   STAYEASE DARK MODE
+========================= */
+
+[data-theme="dark"] {
+    --dark-bg: #181c1b;
+    --dark-section: #202725;
+    --dark-card: #272e2b;
+    --dark-text: #e8eeee;
+    --dark-muted: #b8c2be;
+    --dark-border: #46534e;
+}
+
+/* Body */
+[data-theme="dark"] body {
+    background-color: var(--dark-bg) !important;
+    color: var(--dark-text) !important;
+}
+
+/* Sections */
+[data-theme="dark"] section,
+[data-theme="dark"] .apartments-section,
+[data-theme="dark"] .form-section,
+[data-theme="dark"] .contact {
+    background-color: var(--dark-section) !important;
+    color: var(--dark-text) !important;
+}
+
+/* Navbar */
+[data-theme="dark"] .navbar {
+    background-color: var(--dark-card) !important;
+}
+
+[data-theme="dark"] .navbar-brand,
+[data-theme="dark"] .navbar .nav-link {
+    color: var(--dark-text) !important;
+}
+
+/* Cards and Contact Form */
+[data-theme="dark"] .card,
+[data-theme="dark"] .contact-form {
+    background-color: var(--dark-card) !important;
+    color: var(--dark-text) !important;
+    border-color: var(--dark-border) !important;
+}
+
+/* Headings */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .card-title,
+[data-theme="dark"] .price {
+    color: var(--dark-text) !important;
+}
+
+/* Muted Text */
+[data-theme="dark"] p,
+[data-theme="dark"] .text-secondary,
+[data-theme="dark"] .text-muted,
+[data-theme="dark"] small {
+    color: var(--dark-muted) !important;
+}
+
+/* Forms */
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-select {
+    background-color: #303835 !important;
+    color: var(--dark-text) !important;
+    border-color: var(--dark-border) !important;
+}
+
+[data-theme="dark"] .form-control::placeholder {
+    color: #aab5b0 !important;
+}
+
+/* Focus */
+[data-theme="dark"] .form-control:focus,
+[data-theme="dark"] .form-select:focus {
+    border-color: #83b5a5 !important;
+    box-shadow: 0 0 0 0.2rem rgba(131, 181, 165, 0.2) !important;
+}
+
+/* Select Options */
+[data-theme="dark"] .form-select option {
+    background-color: #303835;
+    color: var(--dark-text);
+}
+
+/* Contact Social Links */
+[data-theme="dark"] .social {
+    color: var(--dark-text) !important;
+    border-color: var(--dark-text) !important;
+}
+
+/* Navbar Toggle */
+[data-theme="dark"] .navbar-toggler {
+    border-color: #aaa !important;
+}
+
+[data-theme="dark"] .navbar-toggler-icon {
+    filter: invert(1);
+}
+
+/* Borders */
+[data-theme="dark"] hr,
+[data-theme="dark"] .border-top {
+    border-color: var(--dark-border) !important;
+}
+
+/* Buttons */
+[data-theme="dark"] .btn-outline-secondary {
+    color: var(--dark-text) !important;
+    border-color: var(--dark-border) !important;
+}
+
+[data-theme="dark"] .btn-outline-secondary:hover {
+    background-color: #46534e !important;
+}
+
+/* Back Link */
+[data-theme="dark"] .back-link {
+    color: #9bc9b8 !important;
+}
+
+/* Footer */
+[data-theme="dark"] footer {
+    background-color: #315c55 !important;
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] footer a {
+    color: #ffffff !important;
+}
+
+/* Transition */
+body,
+.navbar,
+.card,
+section,
+.form-control,
+.form-select {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
