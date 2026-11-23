@@ -1,57 +1,157 @@
+/* =========================================================
+   StayEase - one stylesheet for every page
+   (replaces the old style.css + main.css + theme.css)
 
-/* Base & Colors */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f7f7f4;
-    color: #333;
+   1. Colors (light + dark)
+   2. Base
+   3. Navbar
+   4. Buttons
+   5. Hero
+   6. Cards
+   7. Forms
+   8. Contact page
+   9. Footer
+   ========================================================= */
+
+
+/* ---------- 1. Colors ----------
+   Light mode is the default. Dark mode uses Bootstrap's own
+   data-bs-theme="dark" (set on <html> by theme.js), so we only
+   change the colors here - no !important needed. */
+:root {
+    --brand: #315c55;          /* buttons */
+    --brand-hover: #427a70;
+    --brand-text: #315c55;     /* green used for text and links */
+    --page-bg: #f7f7f4;
+    --soft-bg: #e7efeb;
+    --card-bg: #ffffff;
+    --focus-ring: rgba(49, 92, 85, 0.15);
 }
 
-.brand-color,
+[data-bs-theme="dark"] {
+    --brand: #3a7566;
+    --brand-hover: #428070;
+    --brand-text: #8fc7b5;
+    --page-bg: #181c1b;
+    --soft-bg: #202725;
+    --card-bg: #272e2b;
+    --focus-ring: rgba(143, 199, 181, 0.25);
+
+    --bs-body-bg: #181c1b;
+    --bs-body-bg-rgb: 24, 28, 27;
+    --bs-body-color: #e8eeee;
+    --bs-body-color-rgb: 232, 238, 238;
+    --bs-border-color: #46534e;
+}
+
+
+/* ---------- 2. Base ---------- */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--page-bg);
+}
+
 .section-title,
 .card-title,
 .price,
-.back-link,
-.home h1 {
-    color: #315c55;
+.back-link {
+    color: var(--brand-text);
 }
 
-/* Buttons */
+.back-link:hover {
+    color: var(--brand-text);
+    text-decoration: underline;
+}
+
+
+/* ---------- 3. Navbar ----------
+   We change Bootstrap's own navbar variables instead of fighting
+   its selectors, so brand, hover and active colors just work. */
+.navbar {
+    --bs-navbar-brand-color: var(--brand-text);
+    --bs-navbar-brand-hover-color: var(--brand-text);
+    --bs-navbar-hover-color: var(--brand-text);
+    --bs-navbar-active-color: var(--brand-text);
+}
+
+.navbar .nav-link {
+    border-radius: 5px;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.navbar .nav-link:hover {
+    background-color: var(--soft-bg);
+}
+
+.navbar .nav-link.active {
+    font-weight: 600;
+}
+
+/* The hamburger icon is a dark SVG, so flip it in dark mode */
+[data-bs-theme="dark"] .navbar-toggler-icon {
+    filter: invert(1);
+}
+
+
+/* ---------- 4. Buttons ----------
+   Bootstrap's .btn:hover resets the background, so a custom button
+   must set Bootstrap's button variables, not plain background/color. */
 .main-btn {
-    background-color: #315c55;
-    color: #fff;
-    border: 1px solid #315c55;
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--brand);
+    --bs-btn-border-color: var(--brand);
+
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--brand-hover);
+    --bs-btn-hover-border-color: var(--brand-hover);
+
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--brand-hover);
+    --bs-btn-active-border-color: var(--brand-hover);
+
+    --bs-btn-focus-shadow-rgb: 66, 122, 112;
 }
 
-.main-btn:hover {
-    background-color: #427a70;
-    color: #fff;
-    border-color: #427a70;
-}
 
-/* Sections & Hero */
-.home {
-    min-height: 420px;
-    background-color: #e7efeb;
-    padding: 80px 0;
-}
-
-.home p {
-    color: #666;
-}
-
+/* ---------- 5. Hero ---------- */
 .hero {
-    background: url("./background.jpg") center/cover no-repeat;
+    min-height: 500px;
     padding: 120px 20px;
-    color: #fff;
-    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-image:
+        linear-gradient(rgba(20, 40, 35, 0.45), rgba(20, 40, 35, 0.45)),
+        url("./city.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.apartments-section {
-    background-color: #f7f7f4;
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
-/* Cards & Forms */
+.hero p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+/* A thin light outline so the green button stays visible on the photo */
+.hero .main-btn {
+    --bs-btn-border-color: rgba(255, 255, 255, 0.7);
+    --bs-btn-hover-border-color: #fff;
+}
+
+
+/* ---------- 6. Cards ---------- */
 .card {
+    --bs-card-bg: var(--card-bg);
     border-radius: 8px;
     overflow: hidden;
 }
@@ -61,46 +161,14 @@ body {
     object-fit: cover;
 }
 
-.form-section {
-    padding: 50px 0;
-    min-height: 75vh;
-}
-
-.form-section .card {
-    border-radius: 10px;
-}
-
-.form-control:focus,
-.form-select:focus {
-    border-color: #315c55;
-    box-shadow: 0 0 0 0.2rem rgba(49, 92, 85, 0.15);
-}
-
-.back-link:hover {
-    text-decoration: underline;
-}
-
-/* Navbar Effects */
-.navbar .nav-link {
-    transition: 0.3s;
-    border-radius: 5px;
-}
-
-.navbar .nav-link:hover {
-    color: #315c55;
-    background-color: #e7efeb;
-    transform: translateY(-3px);
-}
-
-/* Unit Cards */
 .unit-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-radius: 12px;
-    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .unit-card:hover {
     transform: translateY(-6px);
+    /* !important because Bootstrap's .shadow-sm is !important too */
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12) !important;
 }
 
@@ -115,52 +183,107 @@ body {
     border-radius: 20px;
 }
 
-/* Footer */
+@media (prefers-reduced-motion: reduce) {
+    .unit-card,
+    .navbar .nav-link {
+        transition: none;
+    }
+
+    .unit-card:hover {
+        transform: none;
+    }
+}
+
+
+/* ---------- 7. Forms (booking + register) ---------- */
+.form-section {
+    padding: 50px 0;
+}
+
+.form-section .card {
+    border-radius: 10px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--brand-text);
+    box-shadow: 0 0 0 0.2rem var(--focus-ring);
+}
+
+
+/* ---------- 8. Contact page ---------- */
+.contact {
+    padding: 50px 10px 120px;
+    background-color: var(--soft-bg);
+    color: var(--brand-text);
+}
+
+.contact h1 {
+    font-family: Georgia, serif;
+    margin-bottom: 15px;
+}
+
+.contact h3 {
+    font-family: Georgia, serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    margin-bottom: 30px;
+}
+
+.contact-info p i {
+    font-size: 22px;
+    margin-right: 8px;
+}
+
+.contact-info p a {
+    color: inherit;
+}
+
+.social {
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 6px;
+    padding: 4px 8px;
+    color: var(--brand-text);
+    border: 2px solid var(--brand-text);
+    border-radius: 5px;
+    text-decoration: none;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.social:hover {
+    color: #fff;
+    background-color: var(--brand);
+    border-color: var(--brand);
+}
+
+.contact-form {
+    padding: 25px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--bs-border-color);
+    border-radius: 10px;
+}
+
+
+/* ---------- 9. Footer ---------- */
 footer {
     background-color: #315c55;
-    color: white;
-    margin-top: 30px;
+    color: #fff;
 }
 
 footer a {
-    color: white;
+    color: #fff;
     text-decoration: none;
 }
 
 footer a:hover {
+    color: #fff;
     text-decoration: underline;
 }
 
 footer hr {
-    border-color: white;
-}
-
-.hero {
-    background-image: linear-gradient(
-        rgba(20, 40, 35, 0.45),
-        rgba(20, 40, 35, 0.45)
-    ), url("./background.jpg");
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    min-height: 500px;
-    padding: 120px 20px !important;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero h1 {
-    font-size: 45px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 18px;
-    margin-bottom: 25px;
+    border-color: #fff;
 }

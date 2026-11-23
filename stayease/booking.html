@@ -1,175 +1,289 @@
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StayEase - Booking</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
-</head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
 
-<body>
-
+    <!-- In the head on purpose: applies the saved theme before the page is drawn -->
+    <script src="./theme.js"></script>
+  </head>
+  <body class="d-flex flex-column min-vh-100">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-white shadow-sm">
-        <div class="container">
+    <nav class="navbar navbar-expand-lg bg-body shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">StayEase</a>
 
-            <a class="navbar-brand fw-bold brand-color" href="index.html">
-                StayEase
-            </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarMenu"
+          aria-controls="navbarMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <button class="navbar-toggler" type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarMenu"
-                    aria-controls="navbarMenu"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <div class="collapse navbar-collapse" id="navbarMenu">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#apartments">Apartments</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="booking.html"
+                >Booking</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="register.html">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
 
-            <div class="collapse navbar-collapse" id="navbarMenu">
-                <ul class="navbar-nav ms-auto gap-lg-3">
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" href="booking.html">Booking</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="register.html">Register</a>
-                    </li>
-
-                </ul>
-            </div>
-
+          <button
+            class="btn btn-outline-secondary btn-sm ms-lg-3 my-2 my-lg-0"
+            id="themeBtn"
+            type="button"
+          >
+            🌙 Dark Mode
+          </button>
         </div>
+      </div>
     </nav>
 
-    <!-- Booking Form -->
-    <section class="form-section">
+    <main class="flex-grow-1">
+      <!-- Booking Form -->
+      <section class="form-section">
         <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+              <div class="card shadow-sm border-0">
+                <div class="card-body p-4 p-md-5">
+                  <h2 class="section-title text-center mb-2">Book Your Stay</h2>
 
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-8 col-lg-6">
+                  <p class="text-body-secondary text-center mb-4">
+                    Fill in the details to request your booking.
+                  </p>
 
-                    <div class="card shadow-sm border-0">
-                        <div class="card-body p-4 p-md-5">
+                  <form id="bookingForm" action="#" method="post" novalidate>
+                    <div class="mb-3">
+                      <label for="guest-name" class="form-label">
+                        Full Name
+                      </label>
 
-                            <h2 class="section-title text-center mb-2">
-                                Book Your Stay
-                            </h2>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="guest-name"
+                        name="guest-name"
+                        placeholder="Enter your name"
+                        minlength="2"
+                        autocomplete="name"
+                        required
+                      />
 
-                            <p class="text-secondary text-center mb-4">
-                                Fill in the details to request your booking.
-                            </p>
-
-                            <form action="#" method="post">
-
-                                <div class="mb-3">
-                                    <label for="guest-name" class="form-label">
-                                        Full Name
-                                    </label>
-
-                                    <input type="text" class="form-control"
-                                           id="guest-name" name="guest-name"
-                                           placeholder="Enter your name" required>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="apartment" class="form-label">
-                                        Choose an Apartment
-                                    </label>
-
-                                    <select class="form-select" id="apartment"
-                                            name="apartment" required>
-
-                                        <option value="" selected disabled>
-                                            Select an apartment
-                                        </option>
-
-                                        <option value="modern">Modern Apartment - $50/night</option>
-                                        <option value="luxury">Luxury Apartment - $80/night</option>
-                                        <option value="cozy">Cozy Apartment - $65/night</option>
-
-                                    </select>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="checkin" class="form-label">
-                                        Check-in Date
-                                    </label>
-
-                                    <input type="date" class="form-control"
-                                           id="checkin" name="checkin" required>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="checkout" class="form-label">
-                                        Check-out Date
-                                    </label>
-
-                                    <input type="date" class="form-control"
-                                           id="checkout" name="checkout" required>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="guests" class="form-label">
-                                        Number of Guests
-                                    </label>
-
-                                    <select class="form-select" id="guests"
-                                            name="guests" required>
-                                        <option value="1">1 Guest</option>
-                                        <option value="2" selected>2 Guests</option>
-                                        <option value="3">3 Guests</option>
-                                        <option value="4">4 Guests</option>
-                                        <option value="5">5 Guests</option>
-                                    </select>
-                                </div>
-
-                                <div class="mb-4">
-                                    <label for="notes" class="form-label">
-                                        Additional Notes
-                                    </label>
-
-                                    <textarea class="form-control"
-                                              id="notes" name="notes"
-                                              rows="3"
-                                              placeholder="Write your notes here"></textarea>
-                                </div>
-
-                                <button type="submit" class="btn main-btn w-100">
-                                    Submit Booking
-                                </button>
-
-                            </form>
-
-                            <p class="text-center mt-4 mb-0">
-                                <a href="index.html" class="back-link">Back to Home</a>
-                            </p>
-
-                        </div>
+                      <div class="invalid-feedback">
+                        Please enter your name (at least 2 characters).
+                      </div>
                     </div>
 
-                </div>
-            </div>
-        </div>
-    </section>
+                    <div class="mb-3">
+                      <label for="apartment" class="form-label">
+                        Choose an Apartment
+                      </label>
 
-    <footer class="text-center py-4">
-        <div class="container">
-            <p class="mb-0">&copy; 2026 StayEase. All rights reserved.</p>
+                      <select
+                        class="form-select"
+                        id="apartment"
+                        name="apartment"
+                        required
+                      >
+                        <option value="" selected disabled>
+                          Select an apartment
+                        </option>
+
+                        <optgroup label="Popular Apartments">
+                          <option value="modern" data-price="50">
+                            Modern Apartment - $50/night
+                          </option>
+                          <option value="luxury" data-price="80">
+                            Luxury Apartment - $80/night
+                          </option>
+                          <option value="cozy" data-price="65">
+                            Cozy Apartment - $65/night
+                          </option>
+                        </optgroup>
+
+                        <optgroup label="Luxury Units">
+                          <option value="penthouse" data-price="120">
+                            Luxury Penthouse - $120/night
+                          </option>
+                          <option value="villa" data-price="210">
+                            Beachfront Villa - $210/night
+                          </option>
+                          <option value="studio" data-price="75">
+                            Garden Studio - $75/night
+                          </option>
+                          <option value="sunlit" data-price="120">
+                            Sunlit Modern Apartment - $120/night
+                          </option>
+                          <option value="seaside" data-price="200">
+                            Seaside Villa - $200/night
+                          </option>
+                          <option value="elegant" data-price="130">
+                            Elegant City Apartment - $130/night
+                          </option>
+                        </optgroup>
+                      </select>
+
+                      <div class="invalid-feedback">
+                        Please choose an apartment.
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="checkin" class="form-label">
+                        Check-in Date
+                      </label>
+
+                      <input
+                        type="date"
+                        class="form-control"
+                        id="checkin"
+                        name="checkin"
+                        required
+                      />
+
+                      <div class="invalid-feedback">
+                        Please choose a check-in date (today or later).
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="checkout" class="form-label">
+                        Check-out Date
+                      </label>
+
+                      <input
+                        type="date"
+                        class="form-control"
+                        id="checkout"
+                        name="checkout"
+                        required
+                      />
+
+                      <div class="invalid-feedback">
+                        Please choose a check-out date after your check-in date.
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="guests" class="form-label">
+                        Number of Guests
+                      </label>
+
+                      <select
+                        class="form-select"
+                        id="guests"
+                        name="guests"
+                        required
+                      >
+                        <option value="1">1 Guest</option>
+                        <option value="2" selected>2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                        <option value="5">5 Guests</option>
+                      </select>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="notes" class="form-label">
+                        Additional Notes
+                      </label>
+
+                      <textarea
+                        class="form-control"
+                        id="notes"
+                        name="notes"
+                        rows="3"
+                        placeholder="Write your notes here"
+                      ></textarea>
+                    </div>
+
+                    <!-- Filled in by booking.js once the apartment and dates are chosen -->
+                    <div
+                      id="bookingSummary"
+                      class="alert alert-secondary d-none mb-4"
+                      role="status"
+                    ></div>
+
+                    <button type="submit" class="btn main-btn w-100">
+                      Submit Booking
+                    </button>
+
+                    <div
+                      id="bookingSuccess"
+                      class="alert alert-success mt-3 mb-0 d-none"
+                      role="alert"
+                    >
+                      Your booking request has been received. We will contact
+                      you soon.
+                    </div>
+                  </form>
+
+                  <p class="text-center mt-4 mb-0">
+                    <a href="index.html" class="back-link">Back to Home</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-4">
+      <div class="container">
+        <h5>Contact Us</h5>
+
+        <p class="mb-2">
+          Email:
+          <a href="mailto:info@stayease.com">info@stayease.com</a>
+        </p>
+
+        <p class="mb-2">
+          Phone:
+          <a href="tel:+201061519997">+20 10 6151 9997</a>
+        </p>
+
+        <p class="mb-3">Location: Egypt</p>
+
+        <hr />
+
+        <p class="mb-0">&copy; 2026 StayEase. All rights reserved.</p>
+      </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
+    <script src="./booking.js"></script>
+  </body>
 </html>
