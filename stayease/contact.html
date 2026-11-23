@@ -1,218 +1,230 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Contant - StayEase</title>
+    <title>StayEase - Contact</title>
+
     <link
-  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-  rel="stylesheet"
-  integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-  crossorigin="anonymous"
-/>
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
 
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-/>
-
-<link rel="stylesheet" href="./main.css" />
-
-<link rel="stylesheet" href="./theme.css" />
-
-</head>
-  <body>
+    <!-- In the head on purpose: applies the saved theme before the page is drawn -->
+    <script src="./theme.js"></script>
+  </head>
+  <body class="d-flex flex-column min-vh-100">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm py-0">
+    <nav class="navbar navbar-expand-lg bg-body shadow-sm">
       <div class="container">
-        <a class="navbar-brand fw-bold brand-color" href="index.html"
-          >StayEase</a
-        >
+        <a class="navbar-brand fw-bold" href="index.html">StayEase</a>
 
         <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarMenu"
+          aria-controls="navbarMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarMenu">
           <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
-    <li class="nav-item">
-        <a class="nav-link" href="index.html">Home</a>
-    </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#apartments">Apartments</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="booking.html">Booking</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="register.html">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="contact.html"
+                >Contact</a
+              >
+            </li>
+          </ul>
 
-    <li class="nav-item">
-        <a class="nav-link" href="about.html">About</a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="apartment.html">Apartments</a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="booking.html">Booking</a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="register.html">Register</a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link active fw-bold" href="contact.html">Contact</a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="#"><i class="bi bi-search"></i></a>
-    </li>
-</ul>
-
-<!-- Dark / Light Mode Button -->
-<button
-    class="btn btn-outline-light ms-lg-3 my-2 my-lg-0"
-    id="themeBtn"
-    type="button">
-    🌙 Dark Mode
-</button>
+          <button
+            class="btn btn-outline-secondary btn-sm ms-lg-3 my-2 my-lg-0"
+            id="themeBtn"
+            type="button"
+          >
+            🌙 Dark Mode
+          </button>
         </div>
       </div>
     </nav>
 
-    <section class="contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <h1>CONTACT DETAILS</h1>
-            <h3>StayEsae Team</h3>
+    <main class="flex-grow-1">
+      <section class="contact">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 contact-info mb-5 mb-md-0">
+              <h1>CONTACT DETAILS</h1>
+              <h3>StayEase Team</h3>
 
-            <p>
-              <i class="bi bi-telephone"></i>
-              <b> Phone: </b>+201061519997
-            </p>
+              <p>
+                <i class="bi bi-telephone" aria-hidden="true"></i>
+                <b> Phone: </b>
+                <a href="tel:+201061519997">+20 10 6151 9997</a>
+              </p>
 
-            <p>
-              <i class="bi bi-envelope-at-fill"></i>
-              <b> Email: </b>info@stayesae.com
-            </p>
+              <p>
+                <i class="bi bi-envelope-at-fill" aria-hidden="true"></i>
+                <b> Email: </b>
+                <a href="mailto:info@stayease.com">info@stayease.com</a>
+              </p>
 
-            <p>
-              <i class="bi bi-geo-alt-fill"></i>
-              <b> Address: </b>Egypt
-            </p>
+              <p>
+                <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+                <b> Address: </b>Egypt
+              </p>
 
-            <a href="#" class="social"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="social"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="social"><i class="bi bi-linkedin"></i></a>
-            <a href="#" class="social"><i class="bi bi-twitter"></i></a>
+              <!-- Replace each "#" with the real page link when you have it -->
+              <a href="#" class="social" aria-label="Facebook"
+                ><i class="bi bi-facebook" aria-hidden="true"></i
+              ></a>
+              <a href="#" class="social" aria-label="Instagram"
+                ><i class="bi bi-instagram" aria-hidden="true"></i
+              ></a>
+              <a href="#" class="social" aria-label="LinkedIn"
+                ><i class="bi bi-linkedin" aria-hidden="true"></i
+              ></a>
+              <a href="#" class="social" aria-label="Twitter"
+                ><i class="bi bi-twitter" aria-hidden="true"></i
+              ></a>
+            </div>
+
+            <div class="col-md-6">
+              <h1>SEND A MESSAGE</h1>
+
+              <form class="contact-form" id="contactForm" novalidate>
+                <!-- Name -->
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your name"
+                    autocomplete="name"
+                  />
+
+                  <div class="invalid-feedback">
+                    Please enter your name (at least 2 characters).
+                  </div>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    autocomplete="email"
+                  />
+
+                  <div class="invalid-feedback">
+                    Please enter a valid email address.
+                  </div>
+                </div>
+
+                <!-- Subject -->
+                <div class="mb-3">
+                  <label for="subject" class="form-label">Subject</label>
+
+                  <select class="form-select" id="subject" name="subject">
+                    <option value="general" selected>General question</option>
+                    <option value="booking">Booking help</option>
+                    <option value="feedback">Feedback</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <!-- Message -->
+                <div class="mb-3">
+                  <label for="message" class="form-label">Message</label>
+
+                  <textarea
+                    class="form-control"
+                    id="message"
+                    name="message"
+                    rows="4"
+                    placeholder="Write your message here"
+                  ></textarea>
+
+                  <div class="invalid-feedback">
+                    Message must be at least 10 characters.
+                  </div>
+                </div>
+
+                <button type="submit" class="btn main-btn px-5">
+                  Send Message
+                </button>
+
+                <!-- Success Message -->
+                <div
+                  id="successMessage"
+                  class="alert alert-success mt-3 mb-0 d-none"
+                  role="alert"
+                >
+                  Your message has been sent successfully!
+                </div>
+              </form>
+            </div>
           </div>
-
-          <div class="col-md-6">
-            <h1>SEND A MESSAGE</h1>
-
-<form class="contact-form" id="contactForm" novalidate>
-
-    <a href="#" class="text-white d-block mb-4">
-        Use This Jotform Template
-    </a>
-
-    <!-- Name -->
-    <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
-
-        <input
-            type="text"
-            class="form-control"
-            id="name"
-            placeholder="Enter your name"
-        >
-
-        <div class="invalid-feedback">
-            Please enter your name (at least 2 characters).
         </div>
-    </div>
+      </section>
+    </main>
 
-    <!-- Email -->
-    <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-
-        <input
-            type="email"
-            class="form-control"
-            id="email"
-            placeholder="Enter your email"
-        >
-
-        <div class="invalid-feedback">
-            Please enter a valid email address.
-        </div>
-    </div>
-
-    <!-- Project Description -->
-    <div class="mb-3">
-        <label for="project-description" class="form-label">
-            Project Description
-        </label>
-
-        <textarea
-            class="form-control"
-            id="project-description"
-            rows="4"
-            placeholder="Write your message here"
-        ></textarea>
-
-        <div class="invalid-feedback">
-            Message must be at least 10 characters.
-        </div>
-    </div>
-
-    <!-- Target Audience -->
-    <div class="mb-3">
-        <label for="target-audience" class="form-label">
-            Target Audience
-        </label>
-
-        <input
-            type="text"
-        class="form-control"
-        id="target-audience"
-    placeholder="Who is your target audience?"
-    >
-    </div>
-
-    <hr>
-
-    <button type="submit" class="btn btn-light">
-        Submit
-    </button>
-
-    <!-- Success Message -->
-    <div id="successMessage" class="alert alert-success mt-3 d-none">
-        Your message has been sent successfully!
-    </div>
-
-</form>
-
-            
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
+    <!-- Footer -->
+    <footer class="text-center py-4">
       <div class="container">
-        <p class="mb-0">&copy; 2026 StayEsae. All rights reserved.</p>
+        <h5>Contact Us</h5>
+
+        <p class="mb-2">
+          Email:
+          <a href="mailto:info@stayease.com">info@stayease.com</a>
+        </p>
+
+        <p class="mb-2">
+          Phone:
+          <a href="tel:+201061519997">+20 10 6151 9997</a>
+        </p>
+
+        <p class="mb-3">Location: Egypt</p>
+
+        <hr />
+
+        <p class="mb-0">&copy; 2026 StayEase. All rights reserved.</p>
       </div>
     </footer>
 
-    <script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-></script>
-
-<script src="./contact-validation.js"></script>
-<script src="./theme.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./contact-validation.js"></script>
+  </body>
 </html>
-  
-

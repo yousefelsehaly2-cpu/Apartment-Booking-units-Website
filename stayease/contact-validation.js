@@ -1,78 +1,65 @@
 const contactForm = document.getElementById("contactForm");
 
 if (contactForm) {
+  const nameInput = document.getElementById("name");
+  const emailInput = document.getElementById("email");
+  const messageInput = document.getElementById("message");
+  const successMessage = document.getElementById("successMessage");
 
-    const name = document.getElementById("name");
-    const email = document.getElementById("email");
-    const message = document.getElementById("project-description");
-    const successMessage = document.getElementById("successMessage");
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    contactForm.addEventListener("submit", function (event) {
+  // One small check per field: true means the value is OK
+  function isNameValid() {
+    return nameInput.value.trim().length >= 2;
+  }
 
-        event.preventDefault();
+  function isEmailValid() {
+    return emailPattern.test(emailInput.value.trim());
+  }
 
-        let valid = true;
+  function isMessageValid() {
+    return messageInput.value.trim().length >= 10;
+  }
 
-        // Name Validation
-        if (name.value.trim().length < 2) {
-            name.classList.add("is-invalid");
-            valid = false;
-        } else {
-            name.classList.remove("is-invalid");
-        }
+  // Bootstrap shows the red message under a field that has .is-invalid
+  function showError(field, hasError) {
+    field.classList.toggle("is-invalid", hasError);
+  }
 
-        // Email Validation
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  contactForm.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-        if (!emailPattern.test(email.value.trim())) {
-            email.classList.add("is-invalid");
-            valid = false;
-        } else {
-            email.classList.remove("is-invalid");
-        }
+    const nameOk = isNameValid();
+    const emailOk = isEmailValid();
+    const messageOk = isMessageValid();
 
-        // Message Validation
-        if (message.value.trim().length < 10) {
-            message.classList.add("is-invalid");
-            valid = false;
-        } else {
-            message.classList.remove("is-invalid");
-        }
+    showError(nameInput, !nameOk);
+    showError(emailInput, !emailOk);
+    showError(messageInput, !messageOk);
 
-        // Check All Fields
-        if (valid) {
-            successMessage.classList.remove("d-none");
-            contactForm.reset();
+    // Check All Fields
+    if (nameOk && emailOk && messageOk) {
+      // No server yet, so nothing is really sent - we only confirm to the visitor
+      contactForm.reset();
+      successMessage.classList.remove("d-none");
+    } else {
+      successMessage.classList.add("d-none");
 
-            name.classList.remove("is-invalid");
-            email.classList.remove("is-invalid");
-            message.classList.remove("is-invalid");
-        } else {
-            successMessage.classList.add("d-none");
-        }
+      // Send the keyboard to the first field that needs fixing
+      contactForm.querySelector(".is-invalid").focus();
+    }
+  });
 
-    });
+  // Remove the error while typing, as soon as the field becomes valid
+  nameInput.addEventListener("input", function () {
+    if (isNameValid()) showError(nameInput, false);
+  });
 
-    // Remove error while typing
-    name.addEventListener("input", function () {
-        if (name.value.trim().length >= 2) {
-            name.classList.remove("is-invalid");
-        }
-    });
+  emailInput.addEventListener("input", function () {
+    if (isEmailValid()) showError(emailInput, false);
+  });
 
-    email.addEventListener("input", function () {
-
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (emailPattern.test(email.value.trim())) {
-            email.classList.remove("is-invalid");
-        }
-    });
-
-    message.addEventListener("input", function () {
-        if (message.value.trim().length >= 10) {
-            message.classList.remove("is-invalid");
-        }
-    });
-
+  messageInput.addEventListener("input", function () {
+    if (isMessageValid()) showError(messageInput, false);
+  });
 }
