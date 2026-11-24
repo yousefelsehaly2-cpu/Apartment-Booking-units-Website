@@ -20,6 +20,17 @@ if (registerForm) {
   passwordInput.addEventListener("input", checkPasswordsMatch);
   confirmInput.addEventListener("input", checkPasswordsMatch);
 
+  // Show / hide both password fields with one button
+  const toggleButton = document.getElementById("togglePasswords");
+
+  toggleButton.addEventListener("click", function () {
+    const show = passwordInput.type === "password";
+
+    passwordInput.type = show ? "text" : "password";
+    confirmInput.type = show ? "text" : "password";
+    toggleButton.textContent = show ? "Hide passwords" : "Show passwords";
+  });
+
   // Start editing again -> hide the old success message
   registerForm.addEventListener("input", function () {
     registerSuccess.classList.add("d-none");

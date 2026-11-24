@@ -13,277 +13,316 @@
    9. Footer
    ========================================================= */
 
-
 /* ---------- 1. Colors ----------
    Light mode is the default. Dark mode uses Bootstrap's own
    data-bs-theme="dark" (set on <html> by theme.js), so we only
    change the colors here - no !important needed. */
 :root {
-    --brand: #315c55;          /* buttons */
-    --brand-hover: #427a70;
-    --brand-text: #315c55;     /* green used for text and links */
-    --page-bg: #f7f7f4;
-    --soft-bg: #e7efeb;
-    --card-bg: #ffffff;
-    --focus-ring: rgba(49, 92, 85, 0.15);
+  --brand: #315c55; /* buttons */
+  --brand-hover: #427a70;
+  --brand-text: #315c55; /* green used for text and links */
+  --page-bg: #f7f7f4;
+  --soft-bg: #e7efeb;
+  --card-bg: #ffffff;
+  --focus-ring: rgba(49, 92, 85, 0.15);
 }
 
 [data-bs-theme="dark"] {
-    --brand: #3a7566;
-    --brand-hover: #428070;
-    --brand-text: #8fc7b5;
-    --page-bg: #181c1b;
-    --soft-bg: #202725;
-    --card-bg: #272e2b;
-    --focus-ring: rgba(143, 199, 181, 0.25);
+  --brand: #3a7566;
+  --brand-hover: #428070;
+  --brand-text: #8fc7b5;
+  --page-bg: #181c1b;
+  --soft-bg: #202725;
+  --card-bg: #272e2b;
+  --focus-ring: rgba(143, 199, 181, 0.25);
 
-    --bs-body-bg: #181c1b;
-    --bs-body-bg-rgb: 24, 28, 27;
-    --bs-body-color: #e8eeee;
-    --bs-body-color-rgb: 232, 238, 238;
-    --bs-border-color: #46534e;
+  --bs-body-bg: #181c1b;
+  --bs-body-bg-rgb: 24, 28, 27;
+  --bs-body-color: #e8eeee;
+  --bs-body-color-rgb: 232, 238, 238;
+  --bs-border-color: #46534e;
 }
-
 
 /* ---------- 2. Base ---------- */
 body {
-    font-family: Arial, sans-serif;
-    background-color: var(--page-bg);
+  font-family: Arial, sans-serif;
+  background-color: var(--page-bg);
 }
 
 .section-title,
 .card-title,
 .price,
 .back-link {
-    color: var(--brand-text);
+  color: var(--brand-text);
 }
 
 .back-link:hover {
-    color: var(--brand-text);
-    text-decoration: underline;
+  color: var(--brand-text);
+  text-decoration: underline;
 }
-
 
 /* ---------- 3. Navbar ----------
    We change Bootstrap's own navbar variables instead of fighting
    its selectors, so brand, hover and active colors just work. */
 .navbar {
-    --bs-navbar-brand-color: var(--brand-text);
-    --bs-navbar-brand-hover-color: var(--brand-text);
-    --bs-navbar-hover-color: var(--brand-text);
-    --bs-navbar-active-color: var(--brand-text);
+  --bs-navbar-brand-color: var(--brand-text);
+  --bs-navbar-brand-hover-color: var(--brand-text);
+  --bs-navbar-hover-color: var(--brand-text);
+  --bs-navbar-active-color: var(--brand-text);
 }
 
 .navbar .nav-link {
-    border-radius: 5px;
-    transition: color 0.3s, background-color 0.3s;
+  border-radius: 5px;
+  transition:
+    color 0.3s,
+    background-color 0.3s;
 }
 
 .navbar .nav-link:hover {
-    background-color: var(--soft-bg);
+  background-color: var(--soft-bg);
 }
 
 .navbar .nav-link.active {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 /* The hamburger icon is a dark SVG, so flip it in dark mode */
 [data-bs-theme="dark"] .navbar-toggler-icon {
-    filter: invert(1);
+  filter: invert(1);
 }
-
 
 /* ---------- 4. Buttons ----------
    Bootstrap's .btn:hover resets the background, so a custom button
    must set Bootstrap's button variables, not plain background/color. */
 .main-btn {
-    --bs-btn-color: #fff;
-    --bs-btn-bg: var(--brand);
-    --bs-btn-border-color: var(--brand);
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--brand);
+  --bs-btn-border-color: var(--brand);
 
-    --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: var(--brand-hover);
-    --bs-btn-hover-border-color: var(--brand-hover);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--brand-hover);
+  --bs-btn-hover-border-color: var(--brand-hover);
 
-    --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: var(--brand-hover);
-    --bs-btn-active-border-color: var(--brand-hover);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--brand-hover);
+  --bs-btn-active-border-color: var(--brand-hover);
 
-    --bs-btn-focus-shadow-rgb: 66, 122, 112;
+  --bs-btn-focus-shadow-rgb: 66, 122, 112;
 }
-
 
 /* ---------- 5. Hero ---------- */
 .hero {
-    min-height: 500px;
-    padding: 120px 20px;
+  min-height: 500px;
+  padding: 120px 20px;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-    background-image:
-        linear-gradient(rgba(20, 40, 35, 0.45), rgba(20, 40, 35, 0.45)),
-        url("./city.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  background-image:
+    linear-gradient(rgba(20, 40, 35, 0.45), rgba(20, 40, 35, 0.45)),
+    url("./city.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .hero h1 {
-    font-size: clamp(2rem, 5vw, 2.8rem);
-    font-weight: bold;
-    margin-bottom: 20px;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .hero p {
-    font-size: 18px;
-    margin-bottom: 25px;
+  font-size: 18px;
+  margin-bottom: 25px;
 }
 
 /* A thin light outline so the green button stays visible on the photo */
 .hero .main-btn {
-    --bs-btn-border-color: rgba(255, 255, 255, 0.7);
-    --bs-btn-hover-border-color: #fff;
+  --bs-btn-border-color: rgba(255, 255, 255, 0.7);
+  --bs-btn-hover-border-color: #fff;
 }
-
 
 /* ---------- 6. Cards ---------- */
 .card {
-    --bs-card-bg: var(--card-bg);
-    border-radius: 8px;
-    overflow: hidden;
+  --bs-card-bg: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .apartment-img {
-    height: 220px;
-    object-fit: cover;
+  height: 220px;
+  object-fit: cover;
 }
 
 .unit-card {
-    border-radius: 12px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .unit-card:hover {
-    transform: translateY(-6px);
-    /* !important because Bootstrap's .shadow-sm is !important too */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12) !important;
+  transform: translateY(-6px);
+  /* !important because Bootstrap's .shadow-sm is !important too */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12) !important;
 }
 
 .unit-img {
-    height: 200px;
-    object-fit: cover;
+  height: 200px;
+  object-fit: cover;
 }
 
 .badge {
-    font-size: 0.75rem;
-    padding: 6px 12px;
-    border-radius: 20px;
+  font-size: 0.75rem;
+  padding: 6px 12px;
+  border-radius: 20px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .unit-card,
-    .navbar .nav-link {
-        transition: none;
-    }
+  .unit-card,
+  .navbar .nav-link {
+    transition: none;
+  }
 
-    .unit-card:hover {
-        transform: none;
-    }
+  .unit-card:hover {
+    transform: none;
+  }
 }
-
 
 /* ---------- 7. Forms (booking + register) ---------- */
 .form-section {
-    padding: 50px 0;
+  padding: 50px 0;
 }
 
 .form-section .card {
-    border-radius: 10px;
+  border-radius: 10px;
 }
 
 .form-control:focus,
 .form-select:focus {
-    border-color: var(--brand-text);
-    box-shadow: 0 0 0 0.2rem var(--focus-ring);
+  border-color: var(--brand-text);
+  box-shadow: 0 0 0 0.2rem var(--focus-ring);
 }
-
 
 /* ---------- 8. Contact page ---------- */
 .contact {
-    padding: 50px 10px 120px;
-    background-color: var(--soft-bg);
-    color: var(--brand-text);
+  padding: 50px 10px 120px;
+  background-color: var(--soft-bg);
+  color: var(--brand-text);
 }
 
 .contact h1 {
-    font-family: Georgia, serif;
-    margin-bottom: 15px;
+  font-family: Georgia, serif;
+  margin-bottom: 15px;
 }
 
 .contact h3 {
-    font-family: Georgia, serif;
-    font-size: 20px;
-    margin-bottom: 20px;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
 .contact-info p {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .contact-info p i {
-    font-size: 22px;
-    margin-right: 8px;
+  font-size: 22px;
+  margin-right: 8px;
 }
 
 .contact-info p a {
-    color: inherit;
+  color: inherit;
 }
 
 .social {
-    display: inline-block;
-    margin-top: 10px;
-    margin-right: 6px;
-    padding: 4px 8px;
-    color: var(--brand-text);
-    border: 2px solid var(--brand-text);
-    border-radius: 5px;
-    text-decoration: none;
-    transition: color 0.3s, background-color 0.3s;
+  display: inline-block;
+  margin-top: 10px;
+  margin-right: 6px;
+  padding: 4px 8px;
+  color: var(--brand-text);
+  border: 2px solid var(--brand-text);
+  border-radius: 5px;
+  text-decoration: none;
+  transition:
+    color 0.3s,
+    background-color 0.3s;
 }
 
 .social:hover {
-    color: #fff;
-    background-color: var(--brand);
-    border-color: var(--brand);
+  color: #fff;
+  background-color: var(--brand);
+  border-color: var(--brand);
 }
 
 .contact-form {
-    padding: 25px;
-    background-color: var(--card-bg);
-    border: 1px solid var(--bs-border-color);
-    border-radius: 10px;
+  padding: 25px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--bs-border-color);
+  border-radius: 10px;
 }
-
 
 /* ---------- 9. Footer ---------- */
 footer {
-    background-color: #315c55;
-    color: #fff;
+  background-color: #315c55;
+  color: #fff;
 }
 
+/* Column titles: a little space under them */
+footer h5,
+footer h6 {
+  margin-bottom: 1rem;
+}
+
+/* Space between the list items, but not after the last one */
+footer li {
+  margin-bottom: 0.5rem;
+}
+
+footer li:last-child {
+  margin-bottom: 0;
+}
+
+/* Links are slightly soft, and become fully white on hover */
 footer a {
-    color: #fff;
-    text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 footer a:hover {
-    color: #fff;
-    text-decoration: underline;
+  color: #fff;
+  text-decoration: underline;
 }
 
 footer hr {
-    border-color: #fff;
+  border-color: #fff;
+}
+
+/* ---------- 10. Theme button ---------- */
+.theme-btn {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 50%;
+  background-color: transparent;
+  font-size: 1.1rem;
+  line-height: 1;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.theme-btn:hover {
+  background-color: var(--soft-bg);
+  border-color: var(--brand-text);
+  transform: rotate(20deg);
 }

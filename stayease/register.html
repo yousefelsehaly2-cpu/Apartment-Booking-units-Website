@@ -62,11 +62,13 @@
           </ul>
 
           <button
-            class="btn btn-outline-secondary btn-sm ms-lg-3 my-2 my-lg-0"
+            class="btn theme-btn ms-lg-3 my-2 my-lg-0"
             id="themeBtn"
             type="button"
+            aria-label="Switch to dark mode"
+            title="Switch to dark mode"
           >
-            🌙 Dark Mode
+            🌙
           </button>
         </div>
       </div>
@@ -159,6 +161,14 @@
                       </div>
                     </div>
 
+                    <button
+                      type="button"
+                      class="btn btn-link p-0 mb-3"
+                      id="togglePasswords"
+                    >
+                      Show passwords
+                    </button>
+
                     <button type="submit" class="btn main-btn w-100">
                       Create Account
                     </button>
@@ -184,25 +194,42 @@
     </main>
 
     <!-- Footer -->
-    <footer class="text-center py-4">
+    <footer class="py-5">
       <div class="container">
-        <h5>Contact Us</h5>
+        <div class="row g-4">
+          <div class="col-12 col-md-4">
+            <h5 class="fw-bold">StayEase</h5>
+            <p class="mb-0">
+              Find and book modern, luxury and cozy apartments at the best
+              prices.
+            </p>
+          </div>
 
-        <p class="mb-2">
-          Email:
-          <a href="mailto:info@stayease.com">info@stayease.com</a>
+          <div class="col-6 col-md-4">
+            <h6 class="fw-bold">Quick Links</h6>
+            <ul class="list-unstyled mb-0">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="booking.html">Booking</a></li>
+              <li><a href="register.html">Register</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="col-6 col-md-4">
+            <h6 class="fw-bold">Contact Us</h6>
+            <ul class="list-unstyled mb-0">
+              <li><a href="mailto:info@stayease.com">info@stayease.com</a></li>
+              <li><a href="tel:+201061519997">+20 10 6151 9997</a></li>
+              <li>Egypt</li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="my-4" />
+
+        <p class="text-center mb-0">
+          &copy; 2026 StayEase. All rights reserved.
         </p>
-
-        <p class="mb-2">
-          Phone:
-          <a href="tel:+201061519997">+20 10 6151 9997</a>
-        </p>
-
-        <p class="mb-3">Location: Egypt</p>
-
-        <hr />
-
-        <p class="mb-0">&copy; 2026 StayEase. All rights reserved.</p>
       </div>
     </footer>
 

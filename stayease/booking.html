@@ -59,11 +59,13 @@
           </ul>
 
           <button
-            class="btn btn-outline-secondary btn-sm ms-lg-3 my-2 my-lg-0"
+            class="btn theme-btn ms-lg-3 my-2 my-lg-0"
             id="themeBtn"
             type="button"
+            aria-label="Switch to dark mode"
+            title="Switch to dark mode"
           >
-            🌙 Dark Mode
+            🌙
           </button>
         </div>
       </div>
@@ -121,34 +123,38 @@
                         </option>
 
                         <optgroup label="Popular Apartments">
-                          <option value="modern" data-price="50">
+                          <option value="modern" data-price="50 " data-max="2">
                             Modern Apartment - $50/night
                           </option>
-                          <option value="luxury" data-price="80">
+                          <option value="luxury" data-price="80" data-max="4">
                             Luxury Apartment - $80/night
                           </option>
-                          <option value="cozy" data-price="65">
+                          <option value="cozy" data-price="65" data-max="5">
                             Cozy Apartment - $65/night
                           </option>
                         </optgroup>
 
                         <optgroup label="Luxury Units">
-                          <option value="penthouse" data-price="120">
+                          <option
+                            value="penthouse"
+                            data-price="120"
+                            data-max="3"
+                          >
                             Luxury Penthouse - $120/night
                           </option>
-                          <option value="villa" data-price="210">
+                          <option value="villa" data-price="210" data-max="6">
                             Beachfront Villa - $210/night
                           </option>
-                          <option value="studio" data-price="75">
+                          <option value="studio" data-price="75" data-max="2">
                             Garden Studio - $75/night
                           </option>
-                          <option value="sunlit" data-price="120">
+                          <option value="sunlit" data-price="120" data-max="3">
                             Sunlit Modern Apartment - $120/night
                           </option>
-                          <option value="seaside" data-price="200">
+                          <option value="seaside" data-price="200" data-max="4">
                             Seaside Villa - $200/night
                           </option>
-                          <option value="elegant" data-price="130">
+                          <option value="elegant" data-price="130" data-max="3">
                             Elegant City Apartment - $130/night
                           </option>
                         </optgroup>
@@ -261,25 +267,42 @@
     </main>
 
     <!-- Footer -->
-    <footer class="text-center py-4">
+    <footer class="py-5">
       <div class="container">
-        <h5>Contact Us</h5>
+        <div class="row g-4">
+          <div class="col-12 col-md-4">
+            <h5 class="fw-bold">StayEase</h5>
+            <p class="mb-0">
+              Find and book modern, luxury and cozy apartments at the best
+              prices.
+            </p>
+          </div>
 
-        <p class="mb-2">
-          Email:
-          <a href="mailto:info@stayease.com">info@stayease.com</a>
+          <div class="col-6 col-md-4">
+            <h6 class="fw-bold">Quick Links</h6>
+            <ul class="list-unstyled mb-0">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="booking.html">Booking</a></li>
+              <li><a href="register.html">Register</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="col-6 col-md-4">
+            <h6 class="fw-bold">Contact Us</h6>
+            <ul class="list-unstyled mb-0">
+              <li><a href="mailto:info@stayease.com">info@stayease.com</a></li>
+              <li><a href="tel:+201061519997">+20 10 6151 9997</a></li>
+              <li>Egypt</li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="my-4" />
+
+        <p class="text-center mb-0">
+          &copy; 2026 StayEase. All rights reserved.
         </p>
-
-        <p class="mb-2">
-          Phone:
-          <a href="tel:+201061519997">+20 10 6151 9997</a>
-        </p>
-
-        <p class="mb-3">Location: Egypt</p>
-
-        <hr />
-
-        <p class="mb-0">&copy; 2026 StayEase. All rights reserved.</p>
       </div>
     </footer>
 

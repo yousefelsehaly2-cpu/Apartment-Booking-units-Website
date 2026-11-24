@@ -5,6 +5,7 @@ if (contactForm) {
   const emailInput = document.getElementById("email");
   const messageInput = document.getElementById("message");
   const successMessage = document.getElementById("successMessage");
+  const messageCount = document.getElementById("messageCount");
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -26,6 +27,18 @@ if (contactForm) {
     field.classList.toggle("is-invalid", hasError);
   }
 
+  // Show how many characters were typed; turns green once the minimum is reached
+  function updateCounter() {
+    const length = messageInput.value.trim().length;
+    messageCount.textContent = length + " / 10 minimum";
+    messageCount.classList.toggle("text-success", length >= 10);
+  }
+
+  messageInput.addEventListener("input", function () {
+    if (isMessageValid()) showError(messageInput, false);
+    updateCounter();
+  });
+
   contactForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -41,6 +54,7 @@ if (contactForm) {
     if (nameOk && emailOk && messageOk) {
       // No server yet, so nothing is really sent - we only confirm to the visitor
       contactForm.reset();
+      updateCounter();
       successMessage.classList.remove("d-none");
     } else {
       successMessage.classList.add("d-none");
@@ -61,5 +75,10 @@ if (contactForm) {
 
   messageInput.addEventListener("input", function () {
     if (isMessageValid()) showError(messageInput, false);
+  });
+
+  // Hide the success message as soon as the visitor starts typing again
+  contactForm.addEventListener("input", function () {
+    successMessage.classList.add("d-none");
   });
 }
