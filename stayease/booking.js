@@ -12,6 +12,7 @@ if (bookingForm) {
   const checkoutInput = document.getElementById("checkout");
   const bookingSummary = document.getElementById("bookingSummary");
   const bookingSuccess = document.getElementById("bookingSuccess");
+  const guestsSelect = document.getElementById("guests");
 
   // Date helpers: yyyy-mm-dd is the format <input type="date"> uses.
   // We build it from local date parts (not toISOString) so the visitor's
@@ -93,10 +94,27 @@ if (bookingForm) {
     bookingSummary.classList.remove("d-none");
   }
 
+  // 3b. Limit the guests to what the chosen apartment can hold
+  function updateGuests() {
+    const selectedOption = apartmentSelect.selectedOptions[0];
+    const max = selectedOption ? Number(selectedOption.dataset.max) || 5 : 5;
+
+    Array.from(guestsSelect.options).forEach(function (option) {
+      option.disabled = Number(option.value) > max;
+    });
+
+    // If the old choice is now too high, drop it to the maximum
+    if (Number(guestsSelect.value) > max) {
+      guestsSelect.value = String(max);
+    }
+  }
+
   updateCheckoutMin();
   updateSummary();
+  updateGuests();
 
   apartmentSelect.addEventListener("change", updateSummary);
+  apartmentSelect.addEventListener("change", updateGuests);
 
   checkinInput.addEventListener("input", function () {
     updateCheckoutMin();
@@ -127,6 +145,7 @@ if (bookingForm) {
     bookingForm.classList.remove("was-validated");
     updateCheckoutMin();
     updateSummary();
+    updateGuests();
     bookingSuccess.classList.remove("d-none");
   });
 }

@@ -4,12 +4,19 @@
 
 const themeRoot = document.documentElement;
 
+// First visit: follow the device setting (dark phone/laptop -> dark site)
+function getSystemTheme() {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+}
+
 function getSavedTheme() {
   try {
-    return localStorage.getItem("theme") || "light";
+    return localStorage.getItem("theme") || getSystemTheme();
   } catch (error) {
     // localStorage can be blocked (private mode, some file:// setups)
-    return "light";
+    return getSystemTheme();
   }
 }
 
@@ -32,7 +39,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateButton() {
     const isDark = themeRoot.getAttribute("data-bs-theme") === "dark";
-    themeBtn.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
+    const label = isDark ? "Switch to light mode" : "Switch to dark mode";
+
+    themeBtn.textContent = isDark ? "☀️" : "🌙";
+    themeBtn.setAttribute("aria-label", label);
+    themeBtn.title = label;
   }
 
   updateButton();
